@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Birthday Surprise 🎂</title>
   <style>
@@ -40,77 +39,68 @@
     }
 
     @keyframes floatUp {
-      from {
-        bottom: 0;
-        opacity: 1;
-      }
-
-      to {
-        bottom: 100%;
-        opacity: 0;
-      }
+      from { bottom: 0; opacity: 1; }
+      to { bottom: 100%; opacity: 0; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Start Screen -->
-  <div id="start">
-    <h2>🎁 I made something special for my mu🤍🤍</h2>
-    <button onclick="showSurprise()">Click Here</button>
-  </div>
+<!-- Start Screen -->
+<div id="start">
+  <h2>🎁 I made something special for my mu🤍🤍</h2>
+  <button onclick="showSurprise()">Click Here</button>
+</div>
 
-  <!-- Surprise Screen -->
-  <div id="mainContent">
-    <h1 id="typingText"></h1>
-    <img src="cake.jpg" alt="Birthday Image">
-    <p>You are the most beautiful part of my life 🤍Miss you at this time🍂 but I hope very few birthday I allow you to
-      celebrate as a bachelor 😂🥰</p>
-    <p>When my hands can't reach you. my prayers always will! 🤍✨</p>
+<!-- Surprise Screen -->
+<div id="mainContent">
+  <h1 id="typingText"></h1>
+  <img src="cake.jpg" alt="Birthday Image">
+  <p>You are the most beautiful part of my life 🤍Miss you at this time🍂 but I hope very few birthday I allow you to celebrate as a bachelor 😂🥰</p>
+  <p>When my hands can't reach you. my prayers always will! 🤍✨</p>
 
-    <audio id="music" loop>
-      <source src="song.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+  <audio id="music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+</div>
 
-  <script>
-    function showSurprise() {
-      document.getElementById("start").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-      typeText();
-      setInterval(createHeart, 500);
+<script>
+  function showSurprise() {
+    document.getElementById("start").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    typeText();
+    setInterval(createHeart, 500);
 
-      // PLAY MUSIC after click (important)
-      document.getElementById("music").play();
+    // PLAY MUSIC after click (important)
+    document.getElementById("music").play();
+  }
+
+  // Typing effect
+  let text = "🎉 🤍Happy Birthday My Love 🤍🎉";
+  let i = 0;
+  function typeText() {
+    if (i < text.length) {
+      document.getElementById("typingText").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeText, 100);
     }
+  }
 
-    // Typing effect
-    let text = "🎉 🤍Happy Birthday My Love 🤍🎉";
-    let i = 0;
-    function typeText() {
-      if (i < text.length) {
-        document.getElementById("typingText").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeText, 100);
-      }
-    }
+  // Heart animation
+  function createHeart() {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
 
-    // Heart animation
-    function createHeart() {
-      let heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 15 + "px";
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 4000);
-    }
-  </script>
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+</script>
 
 </body>
-
 </html>
