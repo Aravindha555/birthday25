@@ -57,15 +57,15 @@
 <div id="mainContent">
   <h1 id="typingText"></h1>
 
-  <!-- FIXED IMAGE PATH -->
-  <img src="./cake.jpg" alt="Birthday Image">
+  <!-- UPDATED IMAGE PATH -->
+  <img src="./cake.jpeg" alt="Birthday Image">
 
   <p>You are the most beautiful part of my life 🤍Miss you at this time🍂 but I hope very few birthday I allow you to celebrate as a bachelor 😂🥰</p>
   <p>When my hands can't reach you, my prayers always will! 🤍✨</p>
 
-  <!-- FIXED AUDIO PATH -->
+  <!-- UPDATED AUDIO PATH -->
   <audio id="music" loop>
-    <source src="./song.mp3" type="audio/mpeg">
+    <source src="./song.mpeg" type="audio/mpeg">
   </audio>
 </div>
 
@@ -76,15 +76,14 @@
     typeText();
     setInterval(createHeart, 500);
 
-    // Safe audio play
     document.getElementById("music").play().catch(function(error){
       console.log("Audio play prevented:", error);
     });
   }
 
-  // Typing effect
   let text = "🎉 🤍Happy Birthday My Love 🤍🎉";
   let i = 0;
+
   function typeText() {
     if (i < text.length) {
       document.getElementById("typingText").innerHTML += text.charAt(i);
@@ -93,7 +92,6 @@
     }
   }
 
-  // Heart animation
   function createHeart() {
     let heart = document.createElement("div");
     heart.className = "heart";
